@@ -1,7 +1,6 @@
 import { EventEmitter, Injectable } from "@angular/core";
 import { NFC, Ndef } from "@ionic-native/nfc/ngx";
 import { Platform } from "@ionic/angular";
-import { platform } from "os";
 import { nfcResult } from "../models/nfcResult.model";
 
 @Injectable({
