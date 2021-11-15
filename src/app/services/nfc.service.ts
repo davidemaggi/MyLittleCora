@@ -12,6 +12,7 @@ export class NfcService {
     private ndef: Ndef,
     private platform: Platform
   ) {
+    
     this.setup();
   }
 

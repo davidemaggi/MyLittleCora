@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NfcService } from '../services/nfc.service';
 import { ToastController } from '@ionic/angular';
 import { nfcResult } from '../models/nfcResult.model';
+import { SoundService } from '../services/sound.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { nfcResult } from '../models/nfcResult.model';
 })
 export class Tab3Page implements OnInit{
 
-  constructor(private nfcSrvice:NfcService,public toastController: ToastController) {
+  constructor(private nfcSrvice:NfcService,private toastController: ToastController, private soundService:SoundService) {
 
 
   }
@@ -21,7 +22,7 @@ export class Tab3Page implements OnInit{
     this.nfcSrvice.nfcRead.subscribe(res=>{
 this.toastNfcRead(res);
       if(res.isOk){
-
+this.soundService.playAudio("mucca_1.mp3")
       }else{
         
       }
