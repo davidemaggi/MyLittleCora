@@ -28,7 +28,7 @@ export class NfcService {
       // Read NFC Tag - Android
       // Once the reader mode is enabled, any tags that are scanned are sent to the subscriber
 
-      let flags = this.nfc.FLAG_READER_NFC_A | this.nfc.FLAG_READER_NFC_V;
+      let flags = this.nfc.FLAG_READER_NFC_A | this.nfc.FLAG_READER_NFC_V | this.nfc.FLAG_READER_NO_PLATFORM_SOUNDS;
       this.readerMode$ = this.nfc.readerMode(flags).subscribe(
         (tag) => this.nfcRead.emit(nfcResult.newSuccess(JSON.stringify(tag))),
         (err) => this.nfcRead.emit(nfcResult.newError(err))
