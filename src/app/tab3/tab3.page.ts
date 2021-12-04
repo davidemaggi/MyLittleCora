@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { NfcService } from "../services/nfc.service";
 import { ToastController } from "@ionic/angular";
-import { nfcResult } from "../models/nfcResult.model";
+import { innerNfcContent, nfcResult } from "../models/nfcResult.model";
 import { SoundService } from "../services/sound.service";
+import { mlcData } from "../models/mlcData.model";
 
 @Component({
   selector: "app-tab3",
@@ -10,7 +11,7 @@ import { SoundService } from "../services/sound.service";
   styleUrls: ["tab3.page.scss"],
 })
 export class Tab3Page implements OnInit {
-  public readJson: object = {};
+  public readJson: innerNfcContent;
 
   constructor(
     private nfcSrvice: NfcService,
@@ -26,12 +27,14 @@ export class Tab3Page implements OnInit {
 
 
   receivedNfc(res:nfcResult){
-    console.log(res.getContent());
-      this.readJson = res.getContent();
+    res.printContent()
+      
 
       this.toastNfcRead(res);
       if (res.isOk) {
-        //this.soundService.playAudio("mucca_1.mp3")
+        this.readJson = res.getContent();
+        let mlc=<mlcData>this.readJson.getMessage("mlcData",true);
+        this.soundService.playAudio(mlc.audio);
       } else {
       }
   }

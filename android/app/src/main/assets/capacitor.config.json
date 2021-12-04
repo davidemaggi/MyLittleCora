@@ -2,12 +2,5 @@
 	"appId": "dev.davidemaggi.myittlecora",
 	"appName": "MyLittleCora",
 	"webDir": "www",
-	"bundledWebRuntime": false,
-	"server": {
-		"url": "http://localhost:8100",
-		"cleartext": true,
-		"allowNavigation": [
-			"localhost:8100/*"
-		]
-	}
+	"bundledWebRuntime": false
 }
