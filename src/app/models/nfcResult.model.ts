@@ -68,7 +68,7 @@ export class innerNfcContent {
   public type: string;
 
   public getMessage(code: string, asJson = false) {
-    
+    if(this.ndefMessage){
     for (let message  of this.ndefMessage) {
       let tmpType = `${String.fromCharCode.apply(
         null,
@@ -83,7 +83,7 @@ export class innerNfcContent {
         return asJson ? JSON.parse(payload) : payload;
       }
     }
-
+  }
     return asJson ? null : "";
   }
 }

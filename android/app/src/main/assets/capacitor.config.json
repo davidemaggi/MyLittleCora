@@ -2,5 +2,8 @@
 	"appId": "dev.davidemaggi.myittlecora",
 	"appName": "MyLittleCora",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"server": {
+		"url": "http://192.168.1.175:8100"
+	}
 }
